@@ -1,6 +1,6 @@
 <?php
   
-  $api_secret = 'VQkQX9qfc7brhQEVT61zi71vDOa6bnbTA1etOYVOEAcZdprKsdhfszlLwQmURNCMJPSjX82iT7QEMyej5crVl6SZXqXfBGfiS8zPQQPc31XZk8Qxl6sI0jojHKbk234i';
+  $api_secret = 'Dioselreydetuvida';
 
   function generateSecurePassword($password)
   {

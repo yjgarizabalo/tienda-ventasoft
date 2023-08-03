@@ -13,30 +13,32 @@
     <div class="row vh-100 justify-content-center align-items-center">
       <div class="col-auto">
         <div class="text-center">
-          <?php
-          $Inicio = "Iniciar Sesión";
-          echo "<h2>$Inicio</h2>";
-          ?>
-          <img src="https://cdn-icons-png.flaticon.com/128/4848/4848051.png" class="" alt="Inicio sesión">
+          <h2>Inicio sesión</h2>
+          <img src="https://cdn-icons-png.flaticon.com/128/9706/9706636.png" class="" alt="Inicio sesión">
         </div>
 
         <div class="card border-0">
           <div class="card-body">
             <form>
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="inputEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="inputPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword">
               </div>
               <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
+                <input type="checkbox" class="form-check-input" id="check1">
+                <label class="form-check-label" for="check1">Recuerdame</label>
+
               </div>
               <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+
+              <div class="mt-3">
+                <span>Aun no estas registado? <a class="link-primary" href="registrar.html">Registrate aqui!</a></span>
+              </div>
             </form>
           </div>
         </div>

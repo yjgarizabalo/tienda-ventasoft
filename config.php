@@ -2,7 +2,7 @@
   $host = 'localhost';
   $db_name = 'tienda_ventasoft';
   $username = 'root';
-  $password = 'XNxnuel1218__';
+  $password = '';
 
   try {
     $conn = new PDO("mysql:host={$host};dbname={$db_name}", $username, $password);

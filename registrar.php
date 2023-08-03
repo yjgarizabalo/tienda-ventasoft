@@ -1,6 +1,6 @@
 <?php
   require 'config.php';
-  require 'api_secret';
+  require 'api_secret.php';
 
 
   if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -17,7 +17,7 @@
     $stmt->bindParam(":primer_nombre", $primer_nombre);
     $stmt->bindParam(":primer_apellido", $primer_apellido);
     $stmt->bindParam(":email", $email);
-    $stmt->bindParam(":password", $hashed_password);
+    $stmt->bindParam(":password", $has_password);
 
     if ($stmt->execute()) {
       echo "Registro exitoso";

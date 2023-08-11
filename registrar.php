@@ -6,7 +6,7 @@
   $alert_class = "";
 
 
-  if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $primer_nombre = trim($_POST["primer_nombre"]);
     $primer_apellido = trim($_POST["primer_apellido"]);
     $email = trim($_POST["email"]);
@@ -14,22 +14,33 @@
 
     $has_password = generateSecurePassword($password);
 
-    $consulta = "INSERT INTO personas (primer_nombre, primer_apellido, email, password) VALUES (:primer_nombre, :primer_apellido, :email, :password)";
+    $consulta_personas = $conn->prepare("SELECT id FROM personas WHERE email = :email");
+    $consulta_personas->bindParam(":email", $email);
+    $consulta_personas->execute();
 
-    $stmt = $conn->prepare($consulta);
-    $stmt->bindParam(":primer_nombre", $primer_nombre);
-    $stmt->bindParam(":primer_apellido", $primer_apellido);
-    $stmt->bindParam(":email", $email);
-    $stmt->bindParam(":password", $has_password);
-
-    if ($stmt->execute()) {
-      $alert_message = "Registro exitoso. Ahora puedes iniciar sesión.";
-      $alert_class = "alert-success";
+    if($consulta_personas->rowCount() > 0) {
+      $alert_message = "El usuario que  $email  esta ingresando ya existe";
+      $alert_class = "alert-danger";
+      // echo "Ya el correo que intenta registrar existe";
     }else {
-        $alert_message = "Error en el registro. Intenta nuevamente.";
-        $alert_class = "alert-danger alert-dismissible fade show";
+      $consulta = "INSERT INTO personas (primer_nombre, primer_apellido, email, password) VALUES (:primer_nombre, :primer_apellido, :email, :password)";
+      $stmt = $conn->prepare($consulta);
+      $stmt->bindParam(":primer_nombre", $primer_nombre);
+      $stmt->bindParam(":primer_apellido", $primer_apellido);
+      $stmt->bindParam(":email", $email);
+      $stmt->bindParam(":password", $has_password);
+  
+      if ($stmt->execute()) {
+        $alert_message = "Registro exitoso. Ahora puedes iniciar sesión.";
+        $alert_class = "alert-success";
+      }else {
+          $alert_message = "Error en el registro. Intenta nuevamente.";
+          $alert_class = "alert-danger alert-dismissible fade show";
+        }
       }
     }
+
+
 ?>
 
 <!doctype html>

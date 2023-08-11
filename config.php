@@ -1,4 +1,5 @@
 <?php 
+//comentado
   $host = 'localhost';
   $db_name = 'tienda_ventasoft';
   $username = 'root';
@@ -11,3 +12,4 @@
     die("Error de conexión: " . $error->getMessage());
   }
 ?>
+

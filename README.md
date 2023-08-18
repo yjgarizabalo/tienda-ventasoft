@@ -3,5 +3,5 @@
 ### Personas
 
 nombre base datos:  tienda_ventasoft
-user: pruiz@vs.co
+user: yair@vs.com
 password: 12345
